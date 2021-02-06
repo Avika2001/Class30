@@ -40,6 +40,7 @@ function setup(){
 
     //log6 = new Log(230,180,80, PI/2);
     slingshot = new SlingShot(bird.body,{x:200, y:50});
+
 }
 
 function draw(){
@@ -70,8 +71,12 @@ function draw(){
 function mouseDragged(){
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
 }
-
-
 function mouseReleased(){
     slingshot.fly();
+}
+
+function keyPressed(){
+    if(keyCode===32){
+        slingshot.attach(bird.body);
+    }
 }
